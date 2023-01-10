@@ -1,0 +1,43 @@
+# log4j
+logging:
+  level:
+    org.springframework.web: info
+
+# application name
+spring:
+  application:
+    name: sec-service
+
+  # postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sec-db
+    username: postgres
+    password: 1234
+
+  # jpa
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    show-sql: false
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+
+
+# swagger-ui.html redirect from base url (nothing mean /)
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# port
+server:
+  port: 8080
